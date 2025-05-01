@@ -1,0 +1,25 @@
+[{
+    "nome": "Pedro",
+    "idade": 18,
+    "mangas/manhwhas lidos":[
+        "Black clover", "Solo leveling", "Nano machine"
+    ],
+    "detalhes profissao": {
+        "profissao": "desenvolvedor",
+        "empresa": "xxx",
+        "salario": "xxxx,xx"
+    }
+},
+{
+    "nome": "Lucas",
+    "idade": 19,
+    "mangas/manhwhas lidos":[
+        "Steins gate", "Homunculus", "Soul eater"
+    ],
+    "detalhes profissao": {
+        "profissao": "barista",
+        "empresa": "xxx",
+        "salario": "xxxx,xx"
+    }
+}
+]
