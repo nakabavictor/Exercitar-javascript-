@@ -60,3 +60,23 @@ console.log(typeof obj2);
 
 const names = obj.map((obj) => obj.nome);
 console.log(names);
+
+//PROMISES
+
+const promessa = new Promise((resolve, reject) => {
+  const name = "Matheus";
+
+  if (name == "Matheus") {
+    resolve("Usuario Matheus foi encontrado");
+  } else {
+    reject("Usuario Matheus nao foi encontrado");
+  }
+});
+
+promessa.then((dado) => {
+  console.log(dado);
+});
+
+//e bom utilizar try catch, tem como utilizar then em cadeia
+//Promisse.all([],then((dado) => {})) resolve todas as promisses juntas
+//promisse e de forma asincrona. nao bloqueia o resto do codigo
