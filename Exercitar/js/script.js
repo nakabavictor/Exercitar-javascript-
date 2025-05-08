@@ -1,3 +1,67 @@
+const iniciarContador = (tempo, callback) => {
+  let contador = tempo;
+
+  const intervalo = setInterval(() => {
+    console.log(contador);
+    contador--;
+    if (contador < 0) {
+      clearInterval(intervalo);
+      callback();
+    }
+  }, 1000);
+};
+
+iniciarContador(10, () => {
+  console.log("Finalizei a execução da contagem regressiva. Valeu, falou!");
+});
+
+let tasks = [
+  { descricao: "Passear com o cachorro", prioridade: 1, status: "concluída" },
+  {
+    descricao: "Comprar ingredientes para o almoço",
+    prioridade: 1,
+    status: "concluída",
+  },
+  { descricao: "Fazer o almoço", prioridade: 1, status: "pendente" },
+  { descricao: "Ir para a academia", prioridade: 2, status: "pendente" },
+  {
+    descricao: "Resolver exercício do curso",
+    prioridade: 1,
+    status: "concluída",
+  },
+  { descricao: "Ir para o futebol", prioridade: 3, status: "pendente" },
+];
+
+console.log(tasks);
+
+//adicionar tarefas
+tasks.push(
+  {
+    descricao: "Ver video sobre Node.js",
+    prioridade: 2,
+    status: "pendente",
+  },
+  {
+    descricao: "Comprar ingredientes para sobremesa",
+    prioridade: 2,
+    status: "concluída",
+  }
+);
+
+console.log(tasks);
+
+//rremover tarefas
+const tarefasPendentes = tasks.filter(({ status }) => status === "pendente");
+console.log(tarefasPendentes);
+
+//tarefas concluidas
+tasks = tasks.map((tasks) => ({
+  tasks,
+  status: "concluido",
+}));
+
+console.log(tasks);
+
 const Myobjs = [
   {
     nome: "Pedro",
