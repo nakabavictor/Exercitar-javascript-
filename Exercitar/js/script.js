@@ -50,6 +50,11 @@ tasks.push(
 
 console.log(tasks);
 
+//modificar um objeto dentro do array
+tasks[0].descricao = "Dormir";
+const onj1 = tasks[0];
+console.log(onj1);
+
 //rremover tarefas
 const tarefasPendentes = tasks.filter(({ status }) => status === "pendente");
 console.log(tarefasPendentes);
