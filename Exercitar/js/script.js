@@ -1,35 +1,61 @@
+//Mais basico
 const iniciarContador = (tempo, callback) => {
   let contador = tempo;
 
   const intervalo = setInterval(() => {
     console.log(contador);
     contador--;
-    if (contador < 0) {
+    if (contador < 1) {
       clearInterval(intervalo);
       callback();
     }
   }, 1000);
 };
-
-iniciarContador(10, () => {
+iniciarContador(2, () => {
   console.log("Finalizei a execução da contagem regressiva. Valeu, falou!");
 });
 
 let tasks = [
-  { descricao: "Passear com o cachorro", prioridade: 1, status: "concluída" },
+  {
+    descricao: "Passear com o cachorro",
+    prioridade: 1,
+    status: "concluída",
+  },
   {
     descricao: "Comprar ingredientes para o almoço",
     prioridade: 1,
     status: "concluída",
   },
-  { descricao: "Fazer o almoço", prioridade: 1, status: "pendente" },
-  { descricao: "Ir para a academia", prioridade: 2, status: "pendente" },
+  {
+    descricao: "Fazer o almoço",
+    prioridade: 1,
+    status: "pendente",
+  },
+  {
+    descricao: "Ir para a academia",
+    prioridade: 2,
+    status: "pendente",
+  },
   {
     descricao: "Resolver exercício do curso",
+    prioridade: 3,
+    status: "concluída",
+  },
+  {
+    descricao: "Ir para o futebol",
+    prioridade: 1,
+    status: "pendente",
+  },
+  {
+    descricao: "Comprar loucuras",
     prioridade: 1,
     status: "concluída",
   },
-  { descricao: "Ir para o futebol", prioridade: 3, status: "pendente" },
+  {
+    descricao: "comprar agua",
+    prioridade: 1,
+    status: "concluída",
+  },
 ];
 
 console.log(tasks);
@@ -59,13 +85,32 @@ console.log(onj1);
 const tarefasPendentes = tasks.filter(({ status }) => status === "pendente");
 console.log(tarefasPendentes);
 
+console.log(tasks);
+
+//contar as tarefas pendentes
+const tarefaspendcount = tasks.reduce(
+  (prev, next) => (next.status === "pendente" ? prev + 1 : prev),
+  0 // o numero inicializa o prev e o next "pega" o valor com o "parametro (.algumacoisa)" e depois faz a funcao, sempre seguindo em frente com o proximo valor/obj"
+);
+console.log(tarefaspendcount);
+
+//ver se as tarefas eestao todas concluidas
+let isEveryTaskDone = tasks.every((task) => task.status === "concluída");
+console.log(isEveryTaskDone);
+
 //tarefas concluidas
 tasks = tasks.map((tasks) => ({
   tasks,
-  status: "concluido",
+  status: "concluída",
 }));
 
 console.log(tasks);
+
+//ver se as tarefas eestao todas concluidas novamente
+isEveryTaskDone = tasks.every((task) => task.status === "concluída");
+console.log(isEveryTaskDone);
+
+/////API, Promisses e async await
 
 const Myobjs = [
   {
@@ -149,3 +194,8 @@ promessa.then((dado) => {
 //e bom utilizar try catch, tem como utilizar then em cadeia
 //Promisse.all([],then((dado) => {})) resolve todas as promisses juntas
 //promisse e de forma asincrona. nao bloqueia o resto do codigo
+
+//ordernar as tarefas por prioridade
+const sortedTasks = tasks.sort((prevTask, currentTask) => prevTask.prioridade - currentTask.prioridade);
+console.log("Por prioridade abaixo:");
+console.log(sortedTasks);
